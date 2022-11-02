@@ -6,6 +6,9 @@ class Filemodel(models.Model):
     file = models.FileField(upload_to='')
     time = models.DateTimeField(auto_now_add=True)
     
+    def delete(self, *args, **kwargs):
+        self.file.delete()
+        super().delete(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.title
