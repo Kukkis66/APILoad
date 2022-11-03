@@ -1,11 +1,13 @@
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
-from rest_framework.views import APIView
+
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
+
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .serializers import FileSerializer
+
 
 
 from .models import Filemodel
@@ -14,6 +16,7 @@ from .models import Filemodel
 class FileViewSet(ModelViewSet):
     queryset = Filemodel.objects.all()
     serializer_class = FileSerializer
+    permission_classes = ( IsAuthenticated, )
 
 
 
