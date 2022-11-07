@@ -5,6 +5,11 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register('files', views.FileViewSet)
+router.register('API', views.FileViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [ 
+    path('signup/', views.SignUp, name='signup'),
+
+] 
+
+urlpatterns += router.urls
