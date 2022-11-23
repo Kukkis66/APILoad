@@ -1,5 +1,7 @@
 from django.contrib import admin
-from . import models
+from django.contrib.auth.admin import UserAdmin
+from .models import User, Filemodel
 
-admin.site.register(models.Filemodel)
+admin.site.register(Filemodel)
+admin.site.register(User, UserAdmin)
 
